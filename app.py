@@ -1,29 +1,20 @@
 import json
 import math
 import os
+
+import MySQLdb.cursors
+import pandas as pd
 import plotly
-import plotly.graph_objs as go
 import plotly.express as ex
-import numpy as np
-import requests
-import re
-from flask import Flask, render_template, request, redirect, flash, url_for,session,jsonify
-from flask_login import UserMixin, LoginManager, login_required, logout_user,login_user, current_user
+from flask import Flask, render_template, request, redirect, flash, url_for, session, jsonify
+from flask_bcrypt import Bcrypt
+from flask_login import current_user
+from flask_mysqldb import MySQL
+from flask_wtf import FlaskForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, EmailField
-from flask_sqlalchemy import SQLAlchemy
-import MySQLdb.cursors
-from flask_paginate import Pagination, get_page_parameter
-from flask_bcrypt import Bcrypt
-from flask_mysqldb import MySQL
-import pymysql
-import pandas as pd
-
-from flask_wtf import FlaskForm
-from wtforms.validators import DataRequired, InputRequired, Length, ValidationError, email_validator, Email
-from bokeh.plotting import figure
-from bokeh.embed import components
+from wtforms import StringField, PasswordField, SubmitField, EmailField
+from wtforms.validators import InputRequired, Length
 
 app = Flask(__name__)
 bcrypy = Bcrypt(app)
@@ -37,7 +28,6 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'destination786'
 app.config['MYSQL_DB'] = 'autotrader'
 app.config['UPLOAD_FOLDER'] = "static"
-db = SQLAlchemy(app)
 
 ## mysql inherit the application
 mysql = MySQL(app)
