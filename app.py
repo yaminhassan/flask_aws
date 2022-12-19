@@ -269,7 +269,7 @@ def upload_file():
           return render_template('setting.html', msg=msg)
     return redirect(url_for('login'))
 
-#route for the settings
+#route for the settingss
 @app.route('/setting', methods=["GET", "POST"])
 def setting():
     if 'loggedin' in session:
