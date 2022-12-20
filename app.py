@@ -21,11 +21,9 @@ bcrypy = Bcrypt(app)
 UPLOAD_FOLDER = '/flask_app/static/images'
 
 app.config['SECRET_KEY'] = 'supermanissuperman'
-app.config['SQL_ALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:destination786@localhost/autotrader'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'destination786'
+app.config['MYSQL_HOST'] = 'autotrader1.chs6xrcq5dgd.eu-central-1.rds.amazonaws.com'
+app.config['MYSQL_USER'] = 'admin'
+app.config['MYSQL_PASSWORD'] = 'destination'
 app.config['MYSQL_DB'] = 'autotrader'
 app.config['UPLOAD_FOLDER'] = "static"
 
